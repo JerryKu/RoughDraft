@@ -7,14 +7,7 @@ import {
     toggleOpen
  } from '../redux/actions/actions'
 
-let googleClientId;
-
-if(process.env.NODE_ENV !== 'production' && process.env.stage !== 'staging'){
-  //googleClientId = require('../config.js').googleSignInAuth.clientID;
-}else{
-  googleClientId = process.env.googleSignInClientId
-}
-
+let googleClientId = process.env.googleSignInClientId;
 
 class SignInWith extends Component {
     render() {
