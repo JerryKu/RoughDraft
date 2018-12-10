@@ -6,7 +6,6 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
 const cloudinary = require('cloudinary')
-const config = require('../config.js')
 const https = require('https')
 const http = require('http')
 const fs = require('fs')
@@ -19,6 +18,12 @@ var credentials = {key: privateKey, cert: certificate};
 const app = express()
 const router = express.Router()
 const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
+
+let config = {}
+
+if(process.env.stage !== 'production' && process.env.stage !== 'staging'){
+  config = require('../config.js')
+}
 
 /** configure cloudinary */
 cloudinary.config({
