@@ -36,7 +36,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cross-env NODE_ENV=production node server/app.js",
+    "server": "node server/app.js",
     "client": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
