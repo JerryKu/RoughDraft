@@ -7,8 +7,6 @@ import {
     toggleOpen
  } from '../redux/actions/actions'
 
-let googleClientId = process.env.googleSignInClientId;
-
 class SignInWith extends Component {
     render() {
     const responseGoogle = (res) => {
@@ -21,7 +19,6 @@ class SignInWith extends Component {
             provider_pic: res.w3.Paa
         }
         console.log(postData)
-        console.log('googleClientId', googleClientId)
         // build our user data
         this.props.signInUser(postData)
         this.props.toggleClose()
@@ -35,10 +32,10 @@ class SignInWith extends Component {
             <ul className="omniauth-button-group">
                 <li className="omniauth-button google">
                     <GoogleLogin className="button google"
-                    clientId={googleClientId}
+                    clientId='659212397345-5jij8dlftb4u1603f7fvsstlla6d8m33.apps.googleusercontent.com'
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle} >
-                        <i className="fa fa-google"></i><span> {googleClientId}</span>
+                        <i className="fa fa-google"></i><span> SignIn with Google</span>
                     </GoogleLogin>
                 </li>
             </ul>
