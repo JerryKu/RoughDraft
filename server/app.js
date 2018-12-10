@@ -22,7 +22,8 @@ const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
 let config = {}
 
 if(process.env.stage !== 'production' && process.env.stage !== 'staging'){
-  config = require('../config.js')
+  console.log("here")
+  //config = require('../config.js')
 }
 
 /** configure cloudinary */
