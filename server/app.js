@@ -19,18 +19,26 @@ const app = express()
 const router = express.Router()
 const url = process.env.MONGODB_URI || "mongodb://localhost:27017/medium"
 
-let config = {}
+let cloud_name;
+let api_key;
+let api_secret;
 
 if(process.env.stage !== 'production' && process.env.stage !== 'staging'){
-  console.log("here")
-  //config = require('../config.js')
+  let config = require('../config.js')
+  cloud_name = config.cloudinaryAuth.Name;
+  api_key = config.cloudinaryAuth.APIKEY;
+  api_secret = config.cloudinaryAuth.APISECRET;
+}else{
+  cloud_name = process.env.cloudinaryAuthName;
+  api_key = process.env.cloudinaryAuthAPIKEY;
+  api_secret = process.env.cloudinaryAPISECRET;
 }
 
 /** configure cloudinary */
 cloudinary.config({
-    cloud_name: config.cloudinaryAuth.Name || process.env.cloudinaryAuthName,
-    api_key: config.cloudinaryAuth.APIKEY || process.env.cloudinaryAuthAPIKEY,
-    api_secret: config.cloudinaryAuth.APISECRET || process.env.cloudinaryAPISECRET
+    cloud_name: cloud_name,
+    api_key: api_key,
+    api_secret: api_secret
 })
 
 /** connect to MongoDB datastore */
