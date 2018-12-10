@@ -6,7 +6,10 @@ import {
     toggleClose,
     toggleOpen
  } from '../redux/actions/actions'
-import config from '../config.js'
+
+const googleClientId = process.env.stage === 'staging' ?
+process.env.googleSignInClientId :
+require('../config.js').googleSignInAuth.clientID;
 
 class SignInWith extends Component {
     render() {
@@ -33,7 +36,7 @@ class SignInWith extends Component {
             <ul className="omniauth-button-group">
                 <li className="omniauth-button google">
                     <GoogleLogin className="button google"
-                    clientId={config.googleSignInAuth.clientID}
+                    clientId={googleClientId}
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle} >
                         <i className="fa fa-google"></i><span> SignIn with Google</span>
