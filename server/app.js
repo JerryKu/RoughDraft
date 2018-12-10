@@ -23,16 +23,16 @@ let cloud_name;
 let api_key;
 let api_secret;
 
-if(process.env.stage !== 'production' && process.env.stage !== 'staging'){
-  let config = require('../config.js')
-  cloud_name = config.cloudinaryAuth.Name;
-  api_key = config.cloudinaryAuth.APIKEY;
-  api_secret = config.cloudinaryAuth.APISECRET;
-}else{
+// if(process.env.stage !== 'production' && process.env.stage !== 'staging'){
+//   let config = require('../config.js')
+//   cloud_name = config.cloudinaryAuth.Name;
+//   api_key = config.cloudinaryAuth.APIKEY;
+//   api_secret = config.cloudinaryAuth.APISECRET;
+// }else{
   cloud_name = process.env.cloudinaryAuthName;
   api_key = process.env.cloudinaryAuthAPIKEY;
   api_secret = process.env.cloudinaryAPISECRET;
-}
+// }
 
 /** configure cloudinary */
 cloudinary.config({
