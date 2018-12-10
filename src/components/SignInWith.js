@@ -21,6 +21,7 @@ class SignInWith extends Component {
             provider_pic: res.w3.Paa
         }
         console.log(postData)
+        console.log('googleClientId', googleClientId)
         // build our user data
         this.props.signInUser(postData)
         this.props.toggleClose()
