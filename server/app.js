@@ -50,7 +50,7 @@ try {
 
 }
 
-let httpsPort = 5000 || process.env.PORT
+let httpPort = 5000 || process.env.PORT
 /** set up routes {API Endpoints} */
 routes(router)
 
@@ -69,10 +69,10 @@ app.use(helmet())
 
 app.use('/api', router)
 
-app.use(proxy('/api', { target: 'https://localhost:5000/' , secure: false, changeOrigin: true}));
+app.use(proxy('/api', { target: 'http://localhost:5000/' , secure: false, changeOrigin: true}));
 
-var httpsServer = https.createServer(credentials, app);
+var httpServer = http.createServer(app);
 /** start server */
-httpsServer.listen(httpsPort, () => {
-    console.log(`Https Server started at port: ${httpsPort}`);
+httpServer.listen(httpPort, () => {
+    console.log(`Http Server started at port: ${httpPort}`);
 });

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = process.env.NODE_ENV === 'production' ? "/api/" : "https://localhost:5000/api/"
+const url = process.env.NODE_ENV === 'production' ? "/api/" : "http://localhost:5000/api/"
 
 export function loadArticles () {
   return (dispatch) => {
