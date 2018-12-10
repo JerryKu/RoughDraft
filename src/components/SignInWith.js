@@ -10,10 +10,7 @@ import {
 let googleClientId;
 
 if(process.env.NODE_ENV !== 'production' && process.env.stage !== 'staging'){
-  console.log('NODE_ENV', process.env.NODE_ENV);
-  console.log('stage', process.env.stage);
-  console.log('env', process.env);
-  googleClientId = require('../config.js').googleSignInAuth.clientID;
+  //googleClientId = require('../config.js').googleSignInAuth.clientID;
 }else{
   googleClientId = process.env.googleSignInClientId
 }
